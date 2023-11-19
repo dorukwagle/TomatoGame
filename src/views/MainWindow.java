@@ -1,5 +1,6 @@
 package views;
 
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,6 +9,7 @@ public class MainWindow {
     private static Dimension dimension;
     private static Container basePanel;
     private static MainWindow window;
+    private JFrame frame;
 
     private MainWindow() {
         // get screen size
@@ -17,7 +19,7 @@ public class MainWindow {
         var frameDimension = dimension = new Dimension((int)(screenDimension.getWidth() * WINDOW_SIZE),
                 (int)(screenDimension.getHeight() * WINDOW_SIZE));
 
-        var frame = new JFrame("TomatoGame");
+        frame = new JFrame("TomatoGame");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(frameDimension);
         frame.setResizable(false);
@@ -25,7 +27,6 @@ public class MainWindow {
         basePanel = frame.getContentPane();
 
         frame.setVisible(true);
-        System.out.println(dimension);
     }
 
     public static MainWindow getInstance() {
@@ -38,6 +39,10 @@ public class MainWindow {
 
     public static int heightFactor(double factor) {
         return (int) (dimension.getHeight() * factor);
+    }
+
+    public void pack() {
+        frame.pack();
     }
 
     public void setContent(Component content) {
