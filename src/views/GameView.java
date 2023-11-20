@@ -14,8 +14,6 @@ public class GameView extends JPanel {
     private JLabel gameState, lifeLine, gameScore;
     private JButton logOutBtn, resetBtn;
 
-    private String defaultStateText = "Guess Hidden Number!";
-
     public GameView() {
         setBorder(new EmptyBorder(20, 10, 20, 10));
         setLayout(new GridBagLayout());
@@ -56,7 +54,7 @@ public class GameView extends JPanel {
 
         var stateHolder = new JPanel();
         stateHolder.setLayout(new FlowLayout(FlowLayout.LEFT));
-        gameState = new JLabel(defaultStateText);
+        gameState = new JLabel("Guess Hidden Number!");
         gameState.setFont(new Font("Serif", Font.BOLD, 20));
 
         stateHolder.add(gameState);
@@ -141,7 +139,6 @@ public class GameView extends JPanel {
     public void resetGame() {
         // enable all the buttons
         Arrays.stream(numPad).forEach(btn -> btn.setEnabled(true));
-        this.gameState.setText(defaultStateText);
     }
 
     public void setPuzzle(BufferedImage image) {
