@@ -1,5 +1,6 @@
 package controllers;
 
+import DTO.User;
 import views.GameView;
 import views.LoginPage;
 import views.MainWindow;
@@ -18,7 +19,7 @@ public class WindowController {
         new LoginController(loginPage, this::initGame);
     }
 
-    private void initGame() {
+    private void initGame(User user) {
         var gameView = new GameView();
         new GameController(gameView, this::initLogin);
         window.setContent(gameView);
