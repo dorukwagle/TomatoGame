@@ -1,5 +1,6 @@
 package controllers;
 
+import views.GameView;
 import views.LoginPage;
 import views.MainWindow;
 
@@ -8,10 +9,18 @@ public class WindowController {
 
     public WindowController() {
         this.window = MainWindow.getInstance();
-
-        window.setContent(new LoginPage());
-
+        initLogin();
     }
 
+    private void initLogin() {
+        var loginPage = new LoginPage();
+        window.setContent(loginPage);
+        new LoginController(loginPage, this::initGame);
+    }
 
+    private void initGame() {
+        var gameView = new GameView();
+        new GameController(gameView, this::initLogin);
+        window.setContent(gameView);
+    }
 }
