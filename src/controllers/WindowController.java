@@ -21,7 +21,7 @@ public class WindowController {
 
     private void initGame(User user) {
         var gameView = new GameView();
-        new GameController(gameView, this::initLogin);
+        new GameController(gameView, user, this::initLogin);
         window.setContent(gameView);
     }
 }
