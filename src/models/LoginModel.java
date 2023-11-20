@@ -1,23 +1,27 @@
 package models;
 
+import DTO.User;
 import controllers.LoginController;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginModel {
-    private final Map<String, String> users = new HashMap<>();
+    private final Map<String, User> users = new HashMap<>();
 
     public LoginModel() {
         // create a list of users
         users.putAll(Map.of(
-                "Aashika", "rai",
-                "Shallona", "shallona",
-                "Doruk", "doruk"
+                "Doruk",new User("Doruk Wagle", "Doruk", "doruk"),
+                "Jessica", new User("Jessica Poudel", "Jessica", "jessica"),
+                "Aashika", new User("Aashika Rai", "Aashika", "aashika")
         ));
     }
 
-    public boolean verifyUser(String username, String password) {
-        return users.containsKey(username) && users.get(username).equals(password);
+    public User verifyUser(String username, String password) {
+        return users.containsKey(username) &&
+                users.get(username).getPassword().equals(password)
+                ?
+                users.get(username) : null;
     }
 }
