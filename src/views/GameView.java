@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class GameView extends JPanel {
 
-    private ImageIcon puzzle;
+    private JLabel puzzleContainer;
     private JButton[] numPad = new JButton[10];
     private JLabel gameState, lifeLine, gameScore;
     private JButton logOutBtn, resetBtn;
@@ -38,15 +38,8 @@ public class GameView extends JPanel {
     }
 
     private void populateGamePanel(JPanel parent) {
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(getClass().getClassLoader().getResource("res/gameover.png"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        puzzle = new ImageIcon(img.getScaledInstance(MainWindow.widthFactor(0.7), MainWindow.heightFactor(0.7), Image.SCALE_SMOOTH));
-        var puzzleContainer = new JLabel(puzzle);
+        puzzleContainer = new JLabel();
         puzzleContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
         puzzleContainer.setBackground(Color.blue);
 
@@ -66,7 +59,7 @@ public class GameView extends JPanel {
         solutionPad.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
 
         for (var i = 0; i < numPad.length; ++i) {
-            var btn = new JButton(String.valueOf(i));
+            var btn = numPad[i] = new JButton(String.valueOf(i));
             btn.setFont(new Font("Serif", Font.BOLD, 15));
             solutionPad.add(btn);
         }
@@ -142,7 +135,9 @@ public class GameView extends JPanel {
     }
 
     public void setPuzzle(BufferedImage image) {
-        this.puzzle.setImage(image);
+        var icon = new ImageIcon(image.getScaledInstance(MainWindow.widthFactor(0.7),
+                MainWindow.heightFactor(0.7), Image.SCALE_SMOOTH));
+        this.puzzleContainer.setIcon(icon);
         this.repaint();
     }
 

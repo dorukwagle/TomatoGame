@@ -1,10 +1,12 @@
 package controllers;
 
 import DTO.User;
+import models.GameModel;
 import views.GameView;
 import views.MainWindow;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class GameController {
@@ -22,6 +24,12 @@ public class GameController {
         });
 
         view.getLogOutBtn().addActionListener(e -> onLogOut.run());
+
+        try {
+            view.setPuzzle(new GameModel().getGameOverScreen());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void onSolutionBtnPressed(JButton btn) {
