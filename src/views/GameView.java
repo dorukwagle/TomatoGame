@@ -1,5 +1,7 @@
 package views;
 
+import DTO.User;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -13,8 +15,10 @@ public class GameView extends JPanel {
     private JButton[] numPad = new JButton[10];
     private JLabel gameState, lifeLine, gameScore;
     private JButton logOutBtn, resetBtn;
+    private User player;
 
-    public GameView() {
+    public GameView(User player) {
+        this.player = player;
         setBorder(new EmptyBorder(20, 10, 20, 10));
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -69,7 +73,7 @@ public class GameView extends JPanel {
     }
 
     private void populateInfoPanel(JPanel parent) {
-        var playerName = new JLabel("Player: Test Player");
+        var playerName = new JLabel("Player: " + this.player.getFullName());
         playerName.setFont(new Font("Serif", Font.BOLD, 25));
         parent.add(playerName);
 

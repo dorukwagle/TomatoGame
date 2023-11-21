@@ -20,7 +20,7 @@ public class WindowController {
     }
 
     private void initGame(User user) {
-        var gameView = new GameView();
+        var gameView = new GameView(user);
         new GameController(gameView, user, this::initLogin);
         window.setContent(gameView);
     }
