@@ -24,7 +24,7 @@ public class GameController {
 
         view.getResetBtn().addActionListener(e -> {
             GameView gameView;
-            MainWindow.getInstance().setContent((gameView = new GameView()));
+            MainWindow.getInstance().setContent((gameView = new GameView(player)));
             new GameController(gameView, player, onLogOut);
         });
 
