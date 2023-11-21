@@ -13,13 +13,15 @@ import java.awt.image.BufferedImage;
 import java.util.Base64;
 
 public class GameModel {
+
+    private final int MAX_LIVES = 3;
     private final String url = "https://marcconrad.com/uob/tomato/api.php?out=csv&base64=yes";
     private int score;
     private int lives;
 
     public GameModel() {
         this.score = 0;
-        this.lives = 3;
+        this.lives = MAX_LIVES;
     }
 
     public Game getNewGame() throws IOException, InterruptedException {
@@ -58,15 +60,23 @@ public class GameModel {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void increaseScore() {
+        ++this.score;
+    }
+
+    public void decreaseScore() {
+        --this.score;
     }
 
     public int getLives() {
         return lives;
     }
 
-    public void setLives(int lives) {
-        this.lives = lives;
+    public void decreaseLife() {
+        --this.lives;
+    }
+
+    public void resetLives() {
+        this.lives = MAX_LIVES;
     }
 }
