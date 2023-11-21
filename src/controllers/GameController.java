@@ -73,6 +73,7 @@ public class GameController {
     private void onIncorrectGuess() {
         this.view.alertIncorrectGuess();
         this.model.decreaseLife();
+        this.view.setLifeLine(this.model.getLives());
     }
 
     private void onLevelFailed() {
