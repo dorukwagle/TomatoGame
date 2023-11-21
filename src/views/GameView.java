@@ -125,7 +125,7 @@ public class GameView extends JPanel {
 
     public void alertIncorrectGuess() {
         this.gameState.setForeground(Color.RED);
-        this.gameState.setText("Incorrect Guess!!");
+        this.gameState.setText("Incorrect Guess!! : Lives(-1)");
     }
 
     public void alertGameOver() {
