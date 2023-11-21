@@ -106,7 +106,7 @@ public class GameView extends JPanel {
     }
 
     public void setLifeLine(int lifeLines) {
-        this.lifeLine.setText(String.valueOf(lifeLines));
+        this.lifeLine.setText("Lives: " + lifeLines);
     }
 
     public void alertLevelPass() {
@@ -137,7 +137,7 @@ public class GameView extends JPanel {
     }
 
     public void setGameScore(int score) {
-        this.gameScore.setText(String.valueOf(score));
+        this.gameScore.setText("Score: " + score);
     }
 
     public JButton[] getNumPad() {
