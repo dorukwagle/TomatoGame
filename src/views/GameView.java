@@ -129,11 +129,6 @@ public class GameView extends JPanel {
         Arrays.stream(numPad).forEach(btn -> btn.setEnabled(false));
     }
 
-    public void resetGame() {
-        // enable all the buttons
-        Arrays.stream(numPad).forEach(btn -> btn.setEnabled(true));
-    }
-
     public void setPuzzle(BufferedImage image) {
         var icon = new ImageIcon(image.getScaledInstance(MainWindow.widthFactor(0.7),
                 MainWindow.heightFactor(0.7), Image.SCALE_SMOOTH));

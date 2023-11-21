@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class GameController {
+    private final int MAX_LIVES = 3;
     private GameView view;
+
     public GameController(GameView view, User player, Runnable onLogOut) {
         this.view = view;
 
