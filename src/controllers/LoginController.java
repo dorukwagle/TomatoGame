@@ -7,10 +7,8 @@ import views.LoginPage;
 import java.util.function.Consumer;
 
 public class LoginController {
-    private Consumer<User> onLoginSuccess;
 
-    public LoginController(LoginPage view, Consumer<User> onLoginSuccess) {
-        this.onLoginSuccess = onLoginSuccess;
+    public LoginController(LoginPage view, Consumer<User> onLoginSuccess, Runnable registration) {
         var model = new LoginModel();
 
         var username = view.getUsername();
@@ -27,6 +25,8 @@ public class LoginController {
 
             onLoginSuccess.accept(user);
         });
+
+        view.getRegistrationBtn().addActionListener(e -> registration.run());
     }
 
 }

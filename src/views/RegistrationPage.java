@@ -5,13 +5,13 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
 
-public class LoginPage extends JPanel {
-    private JTextField username;
-    private JPasswordField password;
+public class RegistrationPage extends JPanel {
+    private JTextField username, fullName;
+    private JPasswordField password, confirmPassword;
     private JLabel errMsg;
-    private JButton loginBtn, registrationBtn;
+    private JButton loginBtn, registerBtn;
 
-    public LoginPage() {
+    public RegistrationPage() {
         var inputBoxSize = new Dimension(MainWindow.widthFactor(0.2), MainWindow.heightFactor(0.06));
         setLayout(new GridBagLayout());
         setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -43,6 +43,16 @@ public class LoginPage extends JPanel {
         row1.add(username);
         grid.add(row1, gridBagConstraints);
 
+        var nameLabel = new JLabel("Full Name: ");
+        nameLabel.setFont(new Font("Serif", Font.BOLD, 20));
+        row1.add(nameLabel);
+
+        fullName = new JTextField();
+        fullName.setFont(new Font("Serif", Font.BOLD, 20));
+        fullName.setPreferredSize(inputBoxSize);
+        row1.add(fullName);
+        grid.add(row1, gridBagConstraints);
+
         var row2 = new JPanel();
         row2.setLayout(new FlowLayout());
 
@@ -54,6 +64,16 @@ public class LoginPage extends JPanel {
         password.setFont(new Font("Serif", Font.BOLD, 20));
         password.setPreferredSize(inputBoxSize);
         row2.add(password);
+        grid.add(row2, gridBagConstraints);
+
+        var cnfLabel = new JLabel("Confirm Password: ");
+        cnfLabel.setFont(new Font("Serif", Font.BOLD, 20));
+        row2.add(cnfLabel);
+
+        confirmPassword = new JPasswordField();
+        confirmPassword.setFont(new Font("Serif", Font.BOLD, 20));
+        confirmPassword.setPreferredSize(inputBoxSize);
+        row2.add(confirmPassword);
         grid.add(row2, gridBagConstraints);
 
         gridBagConstraints.weighty = 1;
@@ -69,15 +89,15 @@ public class LoginPage extends JPanel {
         gap.setFont(new Font("Serif", Font.BOLD, 25));
         grid.add(gap, gridBagConstraints);
 
+        registerBtn = new JButton("Sign Up");
+        registerBtn.setPreferredSize(inputBoxSize);
+        registerBtn.setFont(new Font("Serif", Font.BOLD, 25));
+        grid.add(registerBtn, gridBagConstraints);
+
         loginBtn = new JButton("Log In");
         loginBtn.setPreferredSize(inputBoxSize);
         loginBtn.setFont(new Font("Serif", Font.BOLD, 25));
         grid.add(loginBtn, gridBagConstraints);
-
-        registrationBtn = new JButton("Register");
-        registrationBtn.setPreferredSize(inputBoxSize);
-        registrationBtn.setFont(new Font("Serif", Font.BOLD, 25));
-        grid.add(registrationBtn, gridBagConstraints);
     }
 
     public JTextField getUsername() {
@@ -96,7 +116,15 @@ public class LoginPage extends JPanel {
         return loginBtn;
     }
 
-    public JButton getRegistrationBtn() {
-        return registrationBtn;
+    public JTextField getFullName() {
+        return fullName;
+    }
+
+    public JTextField getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public JButton getRegisterBtn() {
+        return registerBtn;
     }
 }

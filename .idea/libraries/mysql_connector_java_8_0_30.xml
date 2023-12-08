@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-8.0.30">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/Downloads/Programs/mysql-connector-java-8.0.30.jar!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/Programs/mysql-connector-java-8.0.30.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Downloads/Programs/mysql-connector-java-8.0.30.jar!/" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="jar://$USER_HOME$/Downloads/Programs/mysql-connector-java-8.0.30.jar!/" />
+    </NATIVE>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/Programs/mysql-connector-java-8.0.30.jar!/" />
+    </SOURCES>
+    <jarDirectory url="jar://$USER_HOME$/Downloads/Programs/mysql-connector-java-8.0.30.jar!/" recursive="false" />
+    <jarDirectory url="jar://$USER_HOME$/Downloads/Programs/mysql-connector-java-8.0.30.jar!/" recursive="false" type="SOURCES" />
+  </library>
+</component>
